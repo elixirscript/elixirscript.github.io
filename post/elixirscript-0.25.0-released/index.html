@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Elixirscript 0.25.0 released - Elixirscript" property="og:title">
+<title>Elixirscript 0.25.0 released | Elixirscript</title>
+<link rel="stylesheet" href="https://elixirscript.github.io/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://elixirscript.github.io"><h1 class="title is-4">Elixirscript</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/elixirscript">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">February 19, 2017</h2>
+    <h1 class="title">Elixirscript 0.25.0 released</h1>
+    
+    <div class="content">
+      
+
+<p>0.25.0 adds some big changes. For a full look at what&rsquo;s new, look at the <a href="https://github.com/elixirscript/elixirscript/blob/master/CHANGELOG.md">changelog.</a> Below is a summary of the major changes.</p>
+
+<h2 id="select-module-format-of-output">Select module format of output</h2>
+
+<p>Beginning with this release, the module format of generated JavaScript is selectable. The choices are:</p>
+
+<ul>
+<li><p>es - ES Modules (default)</p></li>
+
+<li><p>common - CommonJS modules</p></li>
+
+<li><p>umd - UMD modules</p></li>
+</ul>
+
+<p>The common options means you can use the output in node without the need for tools like babel. The same for UMD in modern browsers (if you use <a href="http://requirejs.org/">requirejs</a> or add in each file in script tags). JS.import is also updated to generate the correct import code for the specified format.</p>
+
+<h2 id="dependencies-support-in-mix-projects">Dependencies support in mix projects</h2>
+
+<p>This release also brings support for dependencies in mix projects.</p>
+
+<p>Your mix project must include the <a href="https://github.com/elixirscript/elixirscript/blob/master/GettingStarted.md#mix-dependency">elixirscript compiler in its list of compilers</a>. Dependencies you use must also have the elixirscript compiler in their mix compilers. When you run &ldquo;mix compile&rdquo;, the compiler will compile the elixirscript code in the paths defined in those dependencies with your code.</p>
+
+<h2 id="default-compiler-parameters">Default compiler parameters</h2>
+
+<p>The elixirscript mix compiler has the following compiler defaults:</p>
+
+<ul>
+<li><p>input: &ldquo;lib/elixirscript&rdquo;</p></li>
+
+<li><p>output: &ldquo;priv/elixirscript&rdquo;</p></li>
+
+<li><p>format: &ldquo;:es&rdquo;</p></li>
+</ul>
+
+<p>These are changeable by adding the &ldquo;elixir_script&rdquo; settings to your mix project.</p>
+
+<h2 id="other-announcements">Other announcements</h2>
+
+<ul>
+<li><p>Elixirscript now has an <a href="https://github.com/elixirscript">organization.</a> It has all elixirscript-related projects.</p></li>
+
+<li><p>Elixirscript now has a <a href="https://gitter.im/elixirscript/elixirscript">gitter</a> room. I am still reachable in the &ldquo;elixirscript&rdquo; slack channel on the elixir-lang slack. The gitter room makes sure that conversation history isn&rsquo;t lost allows for integrations.</p></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+  </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/elixir.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/javascript.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
