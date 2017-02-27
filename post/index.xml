@@ -6,8 +6,59 @@
     <description>Recent content in Posts on Elixirscript</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Feb 2017 11:28:48 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 25 Feb 2017 16:46:24 -0600</lastBuildDate>
     <atom:link href="https://elixirscript.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>elixirscript 0.26.0 released</title>
+      <link>https://elixirscript.github.io/post/elixirscript-0.26.0-released/</link>
+      <pubDate>Sat, 25 Feb 2017 16:46:24 -0600</pubDate>
+      
+      <guid>https://elixirscript.github.io/post/elixirscript-0.26.0-released/</guid>
+      <description>
+
+&lt;p&gt;For a full list of changes, check out out the &lt;a href=&#34;https://github.com/elixirscript/elixirscript/blob/master/CHANGELOG.md&#34;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This version of Elixirscript has a lot of major changes. Here are some of the changes in the new release:&lt;/p&gt;
+
+&lt;h2 id=&#34;bundled-output&#34;&gt;Bundled output&lt;/h2&gt;
+
+&lt;p&gt;This release is the bundle all output into a single file. Now the only file output will be &lt;code&gt;Elixir.App.js.&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;removed-on-js-load&#34;&gt;Removed &lt;code&gt;@on_js_load&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;@on_js_load&lt;/code&gt; is no more. To start an application, do the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//Note: An ES module example. Update for your module output of choice
+import Elixir from &amp;quot;./Elixir.App&amp;quot;;
+
+const my_inital_args = [];
+Elixir.start(Elixir.MyApp, my_inital_args);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This looks for a &lt;code&gt;start/2&lt;/code&gt; function in the &lt;code&gt;MyApp&lt;/code&gt; module. It tries to mimick the API of a normal Elixir Application.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-elixir&#34;&gt;  def start(type, args) do
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;removed-js-import&#34;&gt;Removed &lt;code&gt;JS.import&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;JS.import&lt;/code&gt; is also no more. External JavaScript modules are now defined in configuration. A new configuration, &lt;code&gt;js_modules&lt;/code&gt; is where they go.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-elixir&#34;&gt;js_modules: [
+  {React, &amp;quot;react&amp;quot;},
+  {ReactDOM, &amp;quot;react-dom&amp;quot;}
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Elixirscript adds both &lt;code&gt;React&lt;/code&gt; and &lt;code&gt;ReactDOM&lt;/code&gt;  imports to the top of the bundled output. Each item must be 2-tuple or a 3-tuple. The third element is an optional keyword list of options.&lt;/p&gt;
+
+&lt;p&gt;The CLI now has a &lt;code&gt;js-module&lt;/code&gt; to support the above.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;elixirscript input/path -o output/path --js-module React:react --js-module ReactDOM:react-dom&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Elixirscript 0.25.0 released</title>

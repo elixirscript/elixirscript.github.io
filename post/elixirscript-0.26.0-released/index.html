@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="elixirscript 0.26.0 released - Elixirscript" property="og:title">
+<title>elixirscript 0.26.0 released | Elixirscript</title>
+<link rel="stylesheet" href="https://elixirscript.github.io/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://elixirscript.github.io"><h1 class="title is-4">Elixirscript</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/elixirscript">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">February 25, 2017</h2>
+    <h1 class="title">elixirscript 0.26.0 released</h1>
+    
+    <div class="content">
+      
+
+<p>For a full list of changes, check out out the <a href="https://github.com/elixirscript/elixirscript/blob/master/CHANGELOG.md">changelog</a>.</p>
+
+<p>This version of Elixirscript has a lot of major changes. Here are some of the changes in the new release:</p>
+
+<h2 id="bundled-output">Bundled output</h2>
+
+<p>This release is the bundle all output into a single file. Now the only file output will be <code>Elixir.App.js.</code></p>
+
+<h2 id="removed-on-js-load">Removed <code>@on_js_load</code></h2>
+
+<p><code>@on_js_load</code> is no more. To start an application, do the following:</p>
+
+<pre><code class="language-js">//Note: An ES module example. Update for your module output of choice
+import Elixir from &quot;./Elixir.App&quot;;
+
+const my_inital_args = [];
+Elixir.start(Elixir.MyApp, my_inital_args);
+</code></pre>
+
+<p>This looks for a <code>start/2</code> function in the <code>MyApp</code> module. It tries to mimick the API of a normal Elixir Application.</p>
+
+<pre><code class="language-elixir">  def start(type, args) do
+  end
+</code></pre>
+
+<h2 id="removed-js-import">Removed <code>JS.import</code></h2>
+
+<p><code>JS.import</code> is also no more. External JavaScript modules are now defined in configuration. A new configuration, <code>js_modules</code> is where they go.</p>
+
+<pre><code class="language-elixir">js_modules: [
+  {React, &quot;react&quot;},
+  {ReactDOM, &quot;react-dom&quot;}
+]
+</code></pre>
+
+<p>Elixirscript adds both <code>React</code> and <code>ReactDOM</code>  imports to the top of the bundled output. Each item must be 2-tuple or a 3-tuple. The third element is an optional keyword list of options.</p>
+
+<p>The CLI now has a <code>js-module</code> to support the above.</p>
+
+<p><code>elixirscript input/path -o output/path --js-module React:react --js-module ReactDOM:react-dom</code></p>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+  </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/elixir.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/javascript.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
