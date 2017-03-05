@@ -3,8 +3,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta content="" name="keywords">
-<meta content="Elixirscript" property="og:title">
-<title>Elixirscript</title>
+<meta content="Guides - Elixirscript" property="og:title">
+<title>Guides | Elixirscript</title>
 <link rel="stylesheet" href="https://elixirscript.github.io/css/style.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -42,36 +42,15 @@
   <div class="container">
     
     <article>
-      <h2 class="subtitle is-6">February 25, 2017</h2>
-      <h1 class="title"><a href="https://elixirscript.github.io/post/elixirscript-0.26.0-released/">elixirscript 0.26.0 released</a></h1>
+      <h1 class="title"><a href="https://elixirscript.github.io/guide/using-with-phoenix/">using with phoenix</a></h1>
       
       <div class="content">
-        For a full list of changes, check out out the changelog.
-This version of Elixirscript has a lot of major changes. Here are some of the changes in the new release:
-Bundled output This release is the bundle all output into a single file. Now the only file output will be Elixir.App.js.
-Removed @on_js_load @on_js_load is no more. To start an application, do the following:
-//Note: An ES module example.  ...
-        <a class="button is-link" href="https://elixirscript.github.io/post/elixirscript-0.26.0-released/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a> 
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">February 19, 2017</h2>
-      <h1 class="title"><a href="https://elixirscript.github.io/post/elixirscript-0.25.0-released/">Elixirscript 0.25.0 released</a></h1>
-      
-      <div class="content">
-        0.25.0 adds some big changes. For a full look at what&rsquo;s new, look at the changelog. Below is a summary of the major changes.
-Select module format of output Beginning with this release, the module format of generated JavaScript is selectable. The choices are:
- es - ES Modules (default)
- common - CommonJS modules
- umd - UMD modules
-  The common options means you can use the output in node without the need for tools like babel.  ...
-        <a class="button is-link" href="https://elixirscript.github.io/post/elixirscript-0.25.0-released/" style="height:28px">
+        This guide will walk through setting up a Phoenix project with Elixirscript. This guide assumes you have already created a Phoenix project
+NOTE: This guide covers Phoenix 1.2. It will be updated when Phoenix 1.3 is released
+Update your mix.exs file to add the current version of elixirscript to your dependencies:
+defp deps do [ #other deps {:elixir_script, &quot;~&gt; x.x.x&quot;} ]  Run mix deps.get:
+mix deps.get  Next, Add the elixir_script compiler to your list of mix compilers.  ...
+        <a class="button is-link" href="https://elixirscript.github.io/guide/using-with-phoenix/" style="height:28px">
           Read more
           <span class="icon is-small">
             <i class="fa fa-angle-double-right"></i>

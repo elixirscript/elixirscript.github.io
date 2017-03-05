@@ -1,0 +1,138 @@
+ <!DOCTYPE html>
+<html lang="en-us">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="using with phoenix - Elixirscript" property="og:title">
+<title>using with phoenix | Elixirscript</title>
+<link rel="stylesheet" href="https://elixirscript.github.io/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+
+ <section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://elixirscript.github.io">
+          <h1 class="title is-4">Elixirscript</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          <a class="level-item" href="/guide">Guide</a> 
+          <a class="level-item" href="https://github.com/elixirscript">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h1 class="title">using with phoenix</h1>
+    
+    <div class="content">
+      <p>This guide will walk through setting up a Phoenix project with Elixirscript. This guide assumes you have already created a Phoenix project</p>
+
+<p><strong>NOTE</strong>: This guide covers Phoenix 1.2. It will be updated when Phoenix 1.3 is released</p>
+
+<p>Update your mix.exs file to add the current version of elixirscript to your dependencies:</p>
+
+<pre><code class="language-elixir">  defp deps do
+    [
+      #other deps
+     {:elixir_script, &quot;~&gt; x.x.x&quot;}
+    ]
+</code></pre>
+
+<p>Run <code>mix deps.get</code>:</p>
+
+<pre><code class="language-bash">mix deps.get
+</code></pre>
+
+<p>Next, Add the <code>elixir_script</code> compiler to your list of mix compilers. Also add in the <code>elixir_script</code> configuration:</p>
+
+<pre><code class="language-elixir">def project do
+  [app: :my_app,
+    version: &quot;0.0.1&quot;,
+    elixir: &quot;~&gt; 1.2&quot;,
+    elixirc_paths: elixirc_paths(Mix.env),
+    compilers: [:phoenix, :gettext, :elixir_script] ++ Mix.compilers,
+    build_embedded: Mix.env == :prod,
+    start_permanent: Mix.env == :prod,
+    deps: deps(),
+    elixir_script: [
+      input: &quot;web/static/elixirscript&quot;,
+      output: &quot;web/static/js/build&quot;
+    ]
+  ]
+end
+</code></pre>
+
+<p>Elixirscript by default will looks for input in the <code>lib/elixirscript</code> directory. It will also by default output to <code>priv/elixirscript</code>. Update the input directory to <code>web/static/elixirscript</code>. Update the output directory to <code>web/static/js/build</code>. This lets it tie into Brunch&rsquo;s pipeline.</p>
+
+<p>Next, update the watcher configuration to use the Elixirscript watcher:</p>
+
+<pre><code class="language-elixir">  watchers: [node: [&quot;node_modules/brunch/bin/brunch&quot;, &quot;watch&quot;, &quot;--stdin&quot;,
+                    cd: Path.expand(&quot;../&quot;, __DIR__)], mix: [&quot;elixirscript.watch&quot;]]
+</code></pre>
+
+<p>Whenever your Elixirscript code changes, the elixirscript compiler will recompile it.</p>
+
+<p>Create <code>app.ex</code> in the <code>web/static/elixirscript</code> directory</p>
+
+<pre><code class="language-bash">touch web/static/elixirscript/app.ex
+</code></pre>
+
+<p>For this example, write a simple module that will write <code>Hello, world</code> to the console on start:</p>
+
+<pre><code class="language-elixir">defmodule App do
+
+  def start(_type, _args) do
+    :console.log(&quot;Hello, world&quot;)
+  end
+
+end
+</code></pre>
+
+<p>Finally, update <code>web/static/js/app.js</code> to start your Elixirscript app:</p>
+
+<pre><code class="language-javascript">import Elixir from './build/Elixir.App';
+Elixir.start(Elixir.App, [])
+</code></pre>
+
+<p>The empty array is list of initial arguments for your app.</p>
+
+<p>If you run <code>mix compile</code>, you should see a JavaScript file, <code>Elixir.App.js</code> in your <code>web/static/js/build</code> directory.</p>
+
+<p>If you run <code>mix phoenix.server</code>, open your browser, and then open your console, you should see <code>Hello, world</code>. Any changes should cause a reload</p>
+
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+  </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/elixir.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/javascript.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/bash.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+

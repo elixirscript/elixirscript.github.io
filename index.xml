@@ -6,8 +6,91 @@
     <description>Recent content on Elixirscript</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Feb 2017 16:46:24 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 05 Mar 2017 14:27:53 -0600</lastBuildDate>
     <atom:link href="https://elixirscript.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>using with phoenix</title>
+      <link>https://elixirscript.github.io/guide/using-with-phoenix/</link>
+      <pubDate>Sun, 05 Mar 2017 14:27:53 -0600</pubDate>
+      
+      <guid>https://elixirscript.github.io/guide/using-with-phoenix/</guid>
+      <description>&lt;p&gt;This guide will walk through setting up a Phoenix project with Elixirscript. This guide assumes you have already created a Phoenix project&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: This guide covers Phoenix 1.2. It will be updated when Phoenix 1.3 is released&lt;/p&gt;
+
+&lt;p&gt;Update your mix.exs file to add the current version of elixirscript to your dependencies:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-elixir&#34;&gt;  defp deps do
+    [
+      #other deps
+     {:elixir_script, &amp;quot;~&amp;gt; x.x.x&amp;quot;}
+    ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Run &lt;code&gt;mix deps.get&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mix deps.get
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, Add the &lt;code&gt;elixir_script&lt;/code&gt; compiler to your list of mix compilers. Also add in the &lt;code&gt;elixir_script&lt;/code&gt; configuration:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-elixir&#34;&gt;def project do
+  [app: :my_app,
+    version: &amp;quot;0.0.1&amp;quot;,
+    elixir: &amp;quot;~&amp;gt; 1.2&amp;quot;,
+    elixirc_paths: elixirc_paths(Mix.env),
+    compilers: [:phoenix, :gettext, :elixir_script] ++ Mix.compilers,
+    build_embedded: Mix.env == :prod,
+    start_permanent: Mix.env == :prod,
+    deps: deps(),
+    elixir_script: [
+      input: &amp;quot;web/static/elixirscript&amp;quot;,
+      output: &amp;quot;web/static/js/build&amp;quot;
+    ]
+  ]
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Elixirscript by default will looks for input in the &lt;code&gt;lib/elixirscript&lt;/code&gt; directory. It will also by default output to &lt;code&gt;priv/elixirscript&lt;/code&gt;. Update the input directory to &lt;code&gt;web/static/elixirscript&lt;/code&gt;. Update the output directory to &lt;code&gt;web/static/js/build&lt;/code&gt;. This lets it tie into Brunch&amp;rsquo;s pipeline.&lt;/p&gt;
+
+&lt;p&gt;Next, update the watcher configuration to use the Elixirscript watcher:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-elixir&#34;&gt;  watchers: [node: [&amp;quot;node_modules/brunch/bin/brunch&amp;quot;, &amp;quot;watch&amp;quot;, &amp;quot;--stdin&amp;quot;,
+                    cd: Path.expand(&amp;quot;../&amp;quot;, __DIR__)], mix: [&amp;quot;elixirscript.watch&amp;quot;]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Whenever your Elixirscript code changes, the elixirscript compiler will recompile it.&lt;/p&gt;
+
+&lt;p&gt;Create &lt;code&gt;app.ex&lt;/code&gt; in the &lt;code&gt;web/static/elixirscript&lt;/code&gt; directory&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;touch web/static/elixirscript/app.ex
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For this example, write a simple module that will write &lt;code&gt;Hello, world&lt;/code&gt; to the console on start:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-elixir&#34;&gt;defmodule App do
+
+  def start(_type, _args) do
+    :console.log(&amp;quot;Hello, world&amp;quot;)
+  end
+
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally, update &lt;code&gt;web/static/js/app.js&lt;/code&gt; to start your Elixirscript app:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import Elixir from &#39;./build/Elixir.App&#39;;
+Elixir.start(Elixir.App, [])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The empty array is list of initial arguments for your app.&lt;/p&gt;
+
+&lt;p&gt;If you run &lt;code&gt;mix compile&lt;/code&gt;, you should see a JavaScript file, &lt;code&gt;Elixir.App.js&lt;/code&gt; in your &lt;code&gt;web/static/js/build&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;If you run &lt;code&gt;mix phoenix.server&lt;/code&gt;, open your browser, and then open your console, you should see &lt;code&gt;Hello, world&lt;/code&gt;. Any changes should cause a reload&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>elixirscript 0.26.0 released</title>
