@@ -6,8 +6,37 @@
     <description>Recent content in Posts on Elixirscript</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Feb 2017 16:46:24 -0600</lastBuildDate>
+    <lastBuildDate>Fri, 17 Mar 2017 20:05:52 -0500</lastBuildDate>
     <atom:link href="https://elixirscript.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>elixirscript 0.27.0 released</title>
+      <link>https://elixirscript.github.io/post/elixirscript-0.27.0-released/</link>
+      <pubDate>Fri, 17 Mar 2017 20:05:52 -0500</pubDate>
+      
+      <guid>https://elixirscript.github.io/post/elixirscript-0.27.0-released/</guid>
+      <description>
+
+&lt;p&gt;For a full list of changes, check out out the &lt;a href=&#34;https://github.com/elixirscript/elixirscript/blob/master/CHANGELOG.md&#34;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here are the major changes in this release:&lt;/p&gt;
+
+&lt;h2 id=&#34;super&#34;&gt;Super&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;super&lt;/code&gt; special form has been implemented and with it, &lt;code&gt;defoverridable&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;global-javascript-interop&#34;&gt;Global JavaScript Interop&lt;/h2&gt;
+
+&lt;p&gt;Any JavaScript function, property or module in the global namespace can be accessed by using the &lt;code&gt;JS&lt;/code&gt; module&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-elixir&#34;&gt;JS.alert(&amp;quot;hello&amp;quot;)
+
+JS.console.log(&amp;quot;hello&amp;quot;)
+
+JS.Date.now()
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>elixirscript 0.26.0 released</title>
