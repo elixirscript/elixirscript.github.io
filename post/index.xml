@@ -2,12 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Elixirscript</title>
-    <link>https://elixirscript.github.io/post/index.xml</link>
+    <link>https://elixirscript.github.io/post/</link>
     <description>Recent content in Posts on Elixirscript</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Mar 2017 20:05:52 -0500</lastBuildDate>
-    <atom:link href="https://elixirscript.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jul 2017 19:55:17 -0500</lastBuildDate>
+    
+	<atom:link href="https://elixirscript.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>elixirscript project update</title>
+      <link>https://elixirscript.github.io/post/elixirscript-project-update/</link>
+      <pubDate>Mon, 10 Jul 2017 19:55:17 -0500</pubDate>
+      
+      <guid>https://elixirscript.github.io/post/elixirscript-project-update/</guid>
+      <description>A major change is happening to ElixirScript. The compiler has been rewritten to take advantage of features in Erlang 20 and the upcoming Elixir 1.5. The work for this started shortly after my presentation on ElixirScript at Lonestar Elixir. This post will go over the changes that are happening and why.
+The Old Compiler ElixirScript&amp;rsquo;s old compiler compiled Elixir source code files. It would take these files and turn the code into the Elixir Abstract Syntax Tree (AST).</description>
+    </item>
     
     <item>
       <title>elixirscript 0.27.0 released</title>
@@ -15,27 +27,11 @@
       <pubDate>Fri, 17 Mar 2017 20:05:52 -0500</pubDate>
       
       <guid>https://elixirscript.github.io/post/elixirscript-0.27.0-released/</guid>
-      <description>
-
-&lt;p&gt;For a full list of changes, check out out the &lt;a href=&#34;https://github.com/elixirscript/elixirscript/blob/master/CHANGELOG.md&#34;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Here are the major changes in this release:&lt;/p&gt;
-
-&lt;h2 id=&#34;super&#34;&gt;Super&lt;/h2&gt;
-
-&lt;p&gt;The &lt;code&gt;super&lt;/code&gt; special form has been implemented and with it, &lt;code&gt;defoverridable&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;global-javascript-interop&#34;&gt;Global JavaScript Interop&lt;/h2&gt;
-
-&lt;p&gt;Any JavaScript function, property or module in the global namespace can be accessed by using the &lt;code&gt;JS&lt;/code&gt; module&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-elixir&#34;&gt;JS.alert(&amp;quot;hello&amp;quot;)
-
-JS.console.log(&amp;quot;hello&amp;quot;)
-
-JS.Date.now()
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description> For a full list of changes, check out out the changelog.
+Here are the major changes in this release:
+Super The super special form has been implemented and with it, defoverridable
+Global JavaScript Interop Any JavaScript function, property or module in the global namespace can be accessed by using the JS module
+JS.alert(&amp;quot;hello&amp;quot;) JS.console.log(&amp;quot;hello&amp;quot;) JS.Date.now()  </description>
     </item>
     
     <item>
@@ -44,49 +40,11 @@ JS.Date.now()
       <pubDate>Sat, 25 Feb 2017 16:46:24 -0600</pubDate>
       
       <guid>https://elixirscript.github.io/post/elixirscript-0.26.0-released/</guid>
-      <description>
-
-&lt;p&gt;For a full list of changes, check out out the &lt;a href=&#34;https://github.com/elixirscript/elixirscript/blob/master/CHANGELOG.md&#34;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This version of Elixirscript has a lot of major changes. Here are some of the changes in the new release:&lt;/p&gt;
-
-&lt;h2 id=&#34;bundled-output&#34;&gt;Bundled output&lt;/h2&gt;
-
-&lt;p&gt;This release is the bundle all output into a single file. Now the only file output will be &lt;code&gt;Elixir.App.js.&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;removed-on-js-load&#34;&gt;Removed &lt;code&gt;@on_js_load&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;@on_js_load&lt;/code&gt; is no more. To start an application, do the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//Note: An ES module example. Update for your module output of choice
-import Elixir from &amp;quot;./Elixir.App&amp;quot;;
-
-const my_inital_args = [];
-Elixir.start(Elixir.MyApp, my_inital_args);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This looks for a &lt;code&gt;start/2&lt;/code&gt; function in the &lt;code&gt;MyApp&lt;/code&gt; module. It tries to mimick the API of a normal Elixir Application.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-elixir&#34;&gt;  def start(type, args) do
-  end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;removed-js-import&#34;&gt;Removed &lt;code&gt;JS.import&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;JS.import&lt;/code&gt; is also no more. External JavaScript modules are now defined in configuration. A new configuration, &lt;code&gt;js_modules&lt;/code&gt; is where they go.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-elixir&#34;&gt;js_modules: [
-  {React, &amp;quot;react&amp;quot;},
-  {ReactDOM, &amp;quot;react-dom&amp;quot;}
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Elixirscript adds both &lt;code&gt;React&lt;/code&gt; and &lt;code&gt;ReactDOM&lt;/code&gt;  imports to the top of the bundled output. Each item must be 2-tuple or a 3-tuple. The third element is an optional keyword list of options.&lt;/p&gt;
-
-&lt;p&gt;The CLI now has a &lt;code&gt;js-module&lt;/code&gt; to support the above.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;elixirscript input/path -o output/path --js-module React:react --js-module ReactDOM:react-dom&lt;/code&gt;&lt;/p&gt;
-</description>
+      <description>For a full list of changes, check out out the changelog.
+This version of Elixirscript has a lot of major changes. Here are some of the changes in the new release:
+Bundled output This release is the bundle all output into a single file. Now the only file output will be Elixir.App.js.
+Removed @on_js_load @on_js_load is no more. To start an application, do the following:
+//Note: An ES module example.</description>
     </item>
     
     <item>
@@ -95,52 +53,12 @@ Elixir.start(Elixir.MyApp, my_inital_args);
       <pubDate>Sun, 19 Feb 2017 11:28:48 -0600</pubDate>
       
       <guid>https://elixirscript.github.io/post/elixirscript-0.25.0-released/</guid>
-      <description>
-
-&lt;p&gt;0.25.0 adds some big changes. For a full look at what&amp;rsquo;s new, look at the &lt;a href=&#34;https://github.com/elixirscript/elixirscript/blob/master/CHANGELOG.md&#34;&gt;changelog.&lt;/a&gt; Below is a summary of the major changes.&lt;/p&gt;
-
-&lt;h2 id=&#34;select-module-format-of-output&#34;&gt;Select module format of output&lt;/h2&gt;
-
-&lt;p&gt;Beginning with this release, the module format of generated JavaScript is selectable. The choices are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;es - ES Modules (default)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;common - CommonJS modules&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;umd - UMD modules&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The common options means you can use the output in node without the need for tools like babel. The same for UMD in modern browsers (if you use &lt;a href=&#34;http://requirejs.org/&#34;&gt;requirejs&lt;/a&gt; or add in each file in script tags). JS.import is also updated to generate the correct import code for the specified format.&lt;/p&gt;
-
-&lt;h2 id=&#34;dependencies-support-in-mix-projects&#34;&gt;Dependencies support in mix projects&lt;/h2&gt;
-
-&lt;p&gt;This release also brings support for dependencies in mix projects.&lt;/p&gt;
-
-&lt;p&gt;Your mix project must include the &lt;a href=&#34;https://github.com/elixirscript/elixirscript/blob/master/GettingStarted.md#mix-dependency&#34;&gt;elixirscript compiler in its list of compilers&lt;/a&gt;. Dependencies you use must also have the elixirscript compiler in their mix compilers. When you run &amp;ldquo;mix compile&amp;rdquo;, the compiler will compile the elixirscript code in the paths defined in those dependencies with your code.&lt;/p&gt;
-
-&lt;h2 id=&#34;default-compiler-parameters&#34;&gt;Default compiler parameters&lt;/h2&gt;
-
-&lt;p&gt;The elixirscript mix compiler has the following compiler defaults:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;input: &amp;ldquo;lib/elixirscript&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;output: &amp;ldquo;priv/elixirscript&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;format: &amp;ldquo;:es&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;These are changeable by adding the &amp;ldquo;elixir_script&amp;rdquo; settings to your mix project.&lt;/p&gt;
-
-&lt;h2 id=&#34;other-announcements&#34;&gt;Other announcements&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Elixirscript now has an &lt;a href=&#34;https://github.com/elixirscript&#34;&gt;organization.&lt;/a&gt; It has all elixirscript-related projects.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Elixirscript now has a &lt;a href=&#34;https://gitter.im/elixirscript/elixirscript&#34;&gt;gitter&lt;/a&gt; room. I am still reachable in the &amp;ldquo;elixirscript&amp;rdquo; slack channel on the elixir-lang slack. The gitter room makes sure that conversation history isn&amp;rsquo;t lost allows for integrations.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>0.25.0 adds some big changes. For a full look at what&amp;rsquo;s new, look at the changelog. Below is a summary of the major changes.
+Select module format of output Beginning with this release, the module format of generated JavaScript is selectable. The choices are:
+ es - ES Modules (default)
+ common - CommonJS modules
+ umd - UMD modules
+  The common options means you can use the output in node without the need for tools like babel.</description>
     </item>
     
   </channel>
