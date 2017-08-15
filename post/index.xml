@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Elixirscript</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Jul 2017 19:55:17 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 15 Aug 2017 00:29:03 -0500</lastBuildDate>
     
 	<atom:link href="https://elixirscript.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ElixirScript 0.30.0 Released</title>
+      <link>https://elixirscript.github.io/post/elixirscript-0.30.0-released/</link>
+      <pubDate>Tue, 15 Aug 2017 00:29:03 -0500</pubDate>
+      
+      <guid>https://elixirscript.github.io/post/elixirscript-0.30.0-released/</guid>
+      <description>ElixirScript 0.30 is a large release with lots of changes. It includes a rewrite of the compiler, a change in JavaScript interoperability and much more. This is also the first version to require Erlang 20 and Elixir 1.5, compiled with Erlang 20. ElixirScript can compile your Elixir code and dependencies into JavaScript, with some limitations. These changes make this the best release of ElixirScript so far! This is a great point to give ElixirScript a try for yourself.</description>
+    </item>
     
     <item>
       <title>elixirscript project update</title>

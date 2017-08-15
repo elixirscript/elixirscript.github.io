@@ -6,10 +6,19 @@
     <description>Recent content on Elixirscript</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Jul 2017 19:55:17 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 15 Aug 2017 00:29:03 -0500</lastBuildDate>
     
 	<atom:link href="https://elixirscript.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ElixirScript 0.30.0 Released</title>
+      <link>https://elixirscript.github.io/post/elixirscript-0.30.0-released/</link>
+      <pubDate>Tue, 15 Aug 2017 00:29:03 -0500</pubDate>
+      
+      <guid>https://elixirscript.github.io/post/elixirscript-0.30.0-released/</guid>
+      <description>ElixirScript 0.30 is a large release with lots of changes. It includes a rewrite of the compiler, a change in JavaScript interoperability and much more. This is also the first version to require Erlang 20 and Elixir 1.5, compiled with Erlang 20. ElixirScript can compile your Elixir code and dependencies into JavaScript, with some limitations. These changes make this the best release of ElixirScript so far! This is a great point to give ElixirScript a try for yourself.</description>
+    </item>
     
     <item>
       <title>elixirscript project update</title>
@@ -41,9 +50,9 @@ JS.alert(&amp;quot;hello&amp;quot;) JS.console.log(&amp;quot;hello&amp;quot;) JS
       
       <guid>https://elixirscript.github.io/guide/using-with-phoenix/</guid>
       <description>This guide will walk through setting up a Phoenix project with Elixirscript. This guide assumes you have already created a Phoenix project
-NOTE: This guide covers Phoenix 1.2. It will be updated when Phoenix 1.3 is released
+Update: 2017-08-15: This guide has been updated to cover both ElixirScript 0.30 and Phoenix 1.3
 Update your mix.exs file to add the current version of elixirscript to your dependencies:
-defp deps do [ #other deps {:elixir_script, &amp;quot;~&amp;gt; x.x.x&amp;quot;} ]  Run mix deps.get:
+defp deps do [ #other deps {:elixir_script, &amp;quot;~&amp;gt; x.x&amp;quot;} ]  Run mix deps.get:
 mix deps.get  Next, Add the elixir_script compiler to your list of mix compilers.</description>
     </item>
     
